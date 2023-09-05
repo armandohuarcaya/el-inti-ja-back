@@ -6,7 +6,7 @@ import { CreateIntipazDto } from './infrastructure/dto/create-intipaz.dto';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('IntiPaz')
-@Controller('intipaz')
+@Controller('api/intipaz')
 export class IntipazController {
   constructor(
     @Inject(IntipazService) private readonly iIntipazService: IIntipazService,
@@ -17,7 +17,7 @@ export class IntipazController {
     return await this.iIntipazService.findAllTeam();
   }
 
-  @Post()
+  @Post('/save-team')
   async create(
     @Body() createUserDto: CreateIntipazDto,
   ): Promise<IGenericResponse<any>> {
