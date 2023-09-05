@@ -1,9 +1,6 @@
 import { Inject, Injectable } from "@nestjs/common";
-import { IIntipazService } from './interfaces/intipaz.service.interface';
-import { IGenericResponse } from '../../commons/utils/general';
-import { Model } from 'mongoose';
-import { InjectModel } from '@nestjs/mongoose';
-import { Team, TeamDocument } from '../schemas/team.schema';
+import { IIntipazService } from "./interfaces/intipaz.service.interface";
+import { IGenericResponse } from "../../commons/utils/general";
 import { CreateIntipazDto } from "../infrastructure/dto/create-intipaz.dto";
 import { TeamRepository } from "../domain/repository/team.repository";
 import { ITeamRepository } from "../domain/repository/interfaces/team.repository.interface";
@@ -17,13 +14,10 @@ export class IntipazService implements IIntipazService {
 
   async findAllTeam(): Promise<IGenericResponse<any>> {
     const response: IGenericResponse<any> = {
-      success: false,
+      success: true,
     };
 
-    const resultQuery = await this.iTeamRepository.findAll();
-
-    response.success = true;
-    response.data = resultQuery;
+    response.data = await this.iTeamRepository.findAll();
 
     return response;
   }

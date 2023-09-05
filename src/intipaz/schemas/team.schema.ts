@@ -2,7 +2,7 @@
  * Created by Alexander Llacho
  */
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument, Document } from 'mongoose';
+import { HydratedDocument, SchemaTypes, Types } from 'mongoose';
 import { constantsMongo } from '../../commons/constants/constantsMongo';
 
 export type TeamDocument = HydratedDocument<Team>;
@@ -15,6 +15,12 @@ export type TeamDocument = HydratedDocument<Team>;
 export class Team {
   @Prop({ type: String, required: true })
   name: string;
+
+  @Prop({ type: String, required: true })
+  logo: string;
+
+  @Prop({ type: SchemaTypes.ObjectId, required: true })
+  church_id: Types.ObjectId;
 
   @Prop({ type: Boolean, default: true })
   enabled: boolean;

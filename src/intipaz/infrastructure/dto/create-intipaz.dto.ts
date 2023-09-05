@@ -6,4 +6,9 @@ export class CreateIntipazDto {
   @IsString()
   @ApiProperty({ example: 'horeb', description: 'Nombre de equipo' })
   name: string;
+
+  @IsNotEmpty()
+  @IsString()
+  @ApiProperty({ example: '../logoP', description: 'Log de equipo' })
+  logo: string;
 }

@@ -2,17 +2,17 @@
  * Created by Alexander Llacho
  */
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument, Document, Types, SchemaTypes } from 'mongoose';
+import { HydratedDocument, SchemaTypes, Types } from 'mongoose';
 import { constantsMongo } from '../../commons/constants/constantsMongo';
 
-export type FixtureDocument = HydratedDocument<Fixture>;
+export type GroupTeamDocument = HydratedDocument<GroupTeam>;
 
 @Schema({
   collection: constantsMongo.FIXTURE,
   validateBeforeSave: true,
   versionKey: false,
 })
-export class Fixture {
+export class GroupTeam {
   @Prop({ type: SchemaTypes.ObjectId, required: true })
   category_id: Types.ObjectId;
 
@@ -26,4 +26,4 @@ export class Fixture {
   team_id: Types.ObjectId;
 }
 
-export const FixtureSchema = SchemaFactory.createForClass(Fixture);
+export const GroupTeamSchema = SchemaFactory.createForClass(GroupTeam);

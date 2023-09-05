@@ -5,7 +5,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
 import { constantsMongo } from '../../commons/constants/constantsMongo';
 
-export type GroupDocument = HydratedDocument<Church>;
+export type ChurchDocument = HydratedDocument<Church>;
 
 @Schema({
   collection: constantsMongo.CHURCH,
